@@ -30,10 +30,12 @@
                         sans: ["Inter", "sans-serif"],
                     },
                     boxShadow: {
-                        premium: "0 10px 15px -3px rgba(11, 35, 71, 0.1), 0 4px 6px -2px rgba(11, 35, 71, 0.05)",
-                        "premium-hover": "0 20px 25px -5px rgba(11, 35, 71, 0.1), 0 10px 10px -5px rgba(11, 35, 71, 0.04)",
+                        premium: "0 20px 40px -10px rgba(11, 35, 71, 0.15)",
+                        "premium-hover": "0 30px 60px -12px rgba(11, 35, 71, 0.25)",
                         glass: "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
                         float: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                        card: "0 2px 12px -4px rgba(11, 35, 71, 0.05)",
+                        "card-hover": "0 12px 24px -8px rgba(11, 35, 71, 0.1)",
                     },
                 },
             },
@@ -42,10 +44,11 @@
     <style>
         body { font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
         @keyframes floatIn {
             from { transform: translateY(20px); opacity: 0; }
@@ -56,12 +59,12 @@
         }
     </style>
 </head>
-<body class="bg-background-light text-text-main font-sans antialiased selection:bg-accent selection:text-white flex flex-col min-h-screen">
+<body class="bg-slate-50 text-text-main font-sans antialiased selection:bg-accent selection:text-white flex flex-col min-h-screen">
     
     <!-- Navbar -->
     <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-        <nav class="floating-nav pointer-events-auto flex items-center gap-1 rounded-full px-2 py-2 md:px-3 md:py-2 max-w-fit bg-white/85 border border-white/50 backdrop-blur-md shadow-glass">
-            <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-slate-100 transition-colors duration-200">
+        <nav class="floating-nav pointer-events-auto flex items-center gap-1 rounded-full px-2 py-2 md:px-3 md:py-2 max-w-fit bg-white/90 border border-white/50 backdrop-blur-md shadow-glass">
+            <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors duration-200">
                 <div class="size-6 text-primary">
                     <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary w-full h-full">
                         <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"/>
@@ -74,13 +77,13 @@
             <div class="h-6 w-px bg-slate-200 mx-1 hidden sm:block"></div>
 
             <div class="hidden sm:flex items-center">
-                <a href="#profil" class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-100 px-4 py-2 rounded-full transition-all duration-200">Profil</a>
-                <a href="#tilgang" class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-100 px-4 py-2 rounded-full transition-all duration-200">Tilgang</a>
-                <a href="#kontakt" class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-100 px-4 py-2 rounded-full transition-all duration-200">Kontakt</a>
+                <a href="#overblik" class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-50 px-4 py-2 rounded-full transition-all duration-200">Overblik</a>
+                <a href="#tilgang" class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-50 px-4 py-2 rounded-full transition-all duration-200">Tilgang</a>
+                <a href="#kontakt" class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-50 px-4 py-2 rounded-full transition-all duration-200">Kontakt</a>
             </div>
 
             <div class="ml-1 pl-1">
-                <a href="#kontakt" class="bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center gap-1">
+                <a href="#kontakt" class="bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-1 shadow-md hover:shadow-lg hover:-translate-y-px">
                     <span>Book møde</span>
                 </a>
             </div>
@@ -95,7 +98,7 @@
       
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden absolute top-16 mt-2 p-2 rounded-xl bg-white shadow-xl border border-slate-100 pointer-events-auto flex-col gap-1 w-48 sm:hidden">
-            <a href="#profil" class="text-sm font-medium text-text-muted hover:bg-slate-50 px-4 py-2 rounded-lg">Profil</a>
+            <a href="#overblik" class="text-sm font-medium text-text-muted hover:bg-slate-50 px-4 py-2 rounded-lg">Overblik</a>
             <a href="#tilgang" class="text-sm font-medium text-text-muted hover:bg-slate-50 px-4 py-2 rounded-lg">Tilgang</a>
             <a href="#kontakt" class="text-sm font-medium text-text-muted hover:bg-slate-50 px-4 py-2 rounded-lg">Kontakt</a>
         </div>
@@ -103,7 +106,7 @@
 
     <main class="flex-grow">
         <!-- Hero -->
-        <section class="relative flex min-h-[700px] flex-col justify-center overflow-hidden">
+        <section class="relative flex min-h-[700px] flex-col justify-center overflow-hidden rounded-b-[3rem]">
             <div class="absolute inset-0 z-0">
                 <div class="w-full h-full bg-cover bg-center" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(248, 250, 252, 1) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuChpKBBIZ8moEfFUnpEGEcRFrYRmUG95q3wd6o6tZVvpo3SH3Gr7IQ3PeylQyAtm0MtBvqVTxaPYVLaO8CEqPEATIA2rDBHnsXNJQ-WLAOj3pxm82v26SuzwzYBc2kntTEF8mygM-m4mPSGZBv9yuIsHv9EArl9vMbz-Y-0CejB3dRZYcz0N-P5tyAFPCHY-Vs8eueKPei8OKelUXOq2eEBkxeWRAQFpFkdNLLy1UjXAGCwU6XJBZqIou2p9sxCSI0XGwqxpnbZctk')"></div>
                 <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
@@ -121,30 +124,33 @@
                         Erfaring. Klare leverancer.<br/>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Reel værdi.</span>
                     </h1>
-                    <h2 class="mx-auto max-w-[640px] text-xl font-normal leading-relaxed text-text-muted">
+                    <h2 class="mx-auto max-w-[640px] text-xl font-normal leading-relaxed text-slate-600">
                         Qvision er specialiseret IT- og digitaliseringsrådgivning med fokus på komplekse initiativer. 
                         Jeg hjælper virksomheder med at navigere i teknologisk forandring med sikker hånd.
                     </h2>
                 </div>
-                <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
-                    <a href="#kontakt" class="group relative flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-8 text-base font-bold text-white transition-all hover:bg-primary-light hover:shadow-lg hover:-translate-y-0.5">
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <a href="#kontakt" class="group relative flex h-14 items-center justify-center gap-2 rounded-full bg-primary px-10 text-base font-bold text-white transition-all hover:bg-primary-light hover:shadow-xl hover:-translate-y-0.5">
                         <span>Kontakt mig</span>
                         <i data-lucide="arrow-right" width="18" height="18" class="group-hover:translate-x-0.5 transition-transform"></i>
                     </a>
-                    <a href="#profil" class="flex h-12 items-center justify-center rounded-full bg-white border border-border-subtle px-8 text-base font-semibold text-text-main transition-all hover:bg-slate-50 hover:border-slate-300 shadow-sm">
+                    <a href="#overblik" class="flex h-14 items-center justify-center rounded-full bg-white border border-slate-200 px-10 text-base font-semibold text-text-main transition-all hover:bg-slate-50 hover:border-slate-300 shadow-sm hover:shadow-md">
                         Læs mere
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section id="profil" class="py-24 px-4 md:px-8 bg-surface-light">
-            <div class="mx-auto max-w-[1024px]">
-                <div class="grid md:grid-cols-2 gap-16 items-center">
+        <!-- About/Overblik -->
+        <section id="overblik" class="py-24 px-4 md:px-8 bg-surface-light relative overflow-hidden">
+            <!-- Atmospheric ambient glow behind text content -->
+            <div class="absolute top-20 -left-20 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none mix-blend-multiply"></div>
+            
+            <div class="mx-auto max-w-[1024px] relative z-10">
+                <div class="grid md:grid-cols-2 gap-20 items-center">
                     <div class="flex flex-col gap-8">
                         <div class="space-y-3">
-                            <span class="inline-block py-1 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-wider uppercase text-xs">Hvem jeg er</span>
+                            <span class="inline-block py-1 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-wider uppercase text-xs border border-blue-100">Hvem jeg er</span>
                             <h2 class="text-4xl md:text-5xl font-extrabold text-primary leading-tight tracking-tight">Min baggrund</h2>
                         </div>
                         <div class="prose prose-lg text-text-muted leading-relaxed">
@@ -152,38 +158,50 @@
                             <p class="mt-4">Min styrke ligger i at skære igennem kompleksiteten og skabe overblik, så beslutninger kan træffes på et oplyst grundlag.</p>
                         </div>
                         <div class="pt-8 border-t border-border-subtle">
-                            <h4 class="text-lg font-bold text-primary mb-6">Profil nøgleord</h4>
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
-                                <li class="flex items-center gap-3 text-text-main">
-                                    <span class="flex items-center justify-center size-6 rounded-full bg-green-100 text-green-600 shrink-0"><i data-lucide="check" width="14" height="14" stroke-width="3"></i></span>
-                                    <span class="font-medium">Pragmatisk & Løsningsorienteret</span>
+                            <!-- Refined heading: less dominant to let the cards shine -->
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Profil nøgleord</h4>
+                            
+                            <!-- New Grid Layout with "Micro-cards" design -->
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <li class="flex items-center gap-4 bg-slate-50/80 hover:bg-white border border-slate-100 hover:border-blue-200 p-4 rounded-xl transition-all duration-300 group hover:shadow-lg hover:-translate-y-1 cursor-default">
+                                    <span class="flex items-center justify-center size-10 rounded-lg bg-white text-accent shadow-sm border border-slate-100 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300 shrink-0">
+                                        <i data-lucide="check" width="18" height="18" stroke-width="3"></i>
+                                    </span>
+                                    <span class="font-bold text-primary text-sm group-hover:text-accent transition-colors">Pragmatisk & Løsningsorienteret</span>
                                 </li>
-                                <li class="flex items-center gap-3 text-text-main">
-                                    <span class="flex items-center justify-center size-6 rounded-full bg-green-100 text-green-600 shrink-0"><i data-lucide="check" width="14" height="14" stroke-width="3"></i></span>
-                                    <span class="font-medium">Analytisk stærk</span>
+                                <li class="flex items-center gap-4 bg-slate-50/80 hover:bg-white border border-slate-100 hover:border-blue-200 p-4 rounded-xl transition-all duration-300 group hover:shadow-lg hover:-translate-y-1 cursor-default">
+                                    <span class="flex items-center justify-center size-10 rounded-lg bg-white text-accent shadow-sm border border-slate-100 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300 shrink-0">
+                                        <i data-lucide="check" width="18" height="18" stroke-width="3"></i>
+                                    </span>
+                                    <span class="font-bold text-primary text-sm group-hover:text-accent transition-colors">Analytisk stærk</span>
                                 </li>
-                                <li class="flex items-center gap-3 text-text-main">
-                                    <span class="flex items-center justify-center size-6 rounded-full bg-green-100 text-green-600 shrink-0"><i data-lucide="check" width="14" height="14" stroke-width="3"></i></span>
-                                    <span class="font-medium">Brobygger mellem IT & Forretning</span>
+                                <li class="flex items-center gap-4 bg-slate-50/80 hover:bg-white border border-slate-100 hover:border-blue-200 p-4 rounded-xl transition-all duration-300 group hover:shadow-lg hover:-translate-y-1 cursor-default">
+                                    <span class="flex items-center justify-center size-10 rounded-lg bg-white text-accent shadow-sm border border-slate-100 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300 shrink-0">
+                                        <i data-lucide="check" width="18" height="18" stroke-width="3"></i>
+                                    </span>
+                                    <span class="font-bold text-primary text-sm group-hover:text-accent transition-colors">Brobygger mellem IT & Forretning</span>
                                 </li>
-                                <li class="flex items-center gap-3 text-text-main">
-                                    <span class="flex items-center justify-center size-6 rounded-full bg-green-100 text-green-600 shrink-0"><i data-lucide="check" width="14" height="14" stroke-width="3"></i></span>
-                                    <span class="font-medium">Teknisk funderet</span>
+                                <li class="flex items-center gap-4 bg-slate-50/80 hover:bg-white border border-slate-100 hover:border-blue-200 p-4 rounded-xl transition-all duration-300 group hover:shadow-lg hover:-translate-y-1 cursor-default">
+                                    <span class="flex items-center justify-center size-10 rounded-lg bg-white text-accent shadow-sm border border-slate-100 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300 shrink-0">
+                                        <i data-lucide="check" width="18" height="18" stroke-width="3"></i>
+                                    </span>
+                                    <span class="font-bold text-primary text-sm group-hover:text-accent transition-colors">Teknisk funderet</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="relative group mx-auto w-full max-w-md md:max-w-full">
-                        <div class="absolute top-10 -right-10 w-3/4 h-3/4 bg-blue-100 rounded-3xl -z-10 transform rotate-3 transition-transform duration-500 group-hover:rotate-6"></div>
-                        <div class="absolute -bottom-6 -left-6 w-1/2 h-1/2 bg-slate-100 rounded-3xl -z-10"></div>
+                    <!-- Updated Image Design: Architectural/Clean -->
+                    <div class="relative group mx-auto w-full max-w-md md:max-w-full pl-6 pb-6">
+                        <!-- Solid architectural back element instead of tilted block -->
+                        <div class="absolute top-0 right-0 w-full h-full bg-slate-100 rounded-3xl -z-10 border border-slate-200"></div>
                         <div class="relative overflow-hidden rounded-2xl shadow-premium group-hover:shadow-premium-hover transition-all duration-500 aspect-[4/5] bg-primary">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB18YtSPQW276QZwkKa9hvqDcuYdHMLTldXUEUsfZaDgsMR-gCMhe1yp-qkMUkjLNoqpkU9INeRCqHoBdUhR4ycos5XrgEoYOYfyEvZyQorp2qkf78l8sr6tmUcijYcrmmX0ctp26veSn-isC8Z3mGBuPoXs4S1ZAT5I33G4IolWv3nUF5R0mRGKyJXj1g6-obKEgjYkjKMX1PXOHrh44wcVs8kA8fhoNq7o5y7TD0_vXVAD4iuIKV8alhSwtcoK7ceu7Y5E9yaso0" alt="Professional consultant" class="object-cover w-full h-full opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700">
-                            <div class="absolute bottom-4 left-4 right-4 glass-card p-5 rounded-xl">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB18YtSPQW276QZwkKa9hvqDcuYdHMLTldXUEUsfZaDgsMR-gCMhe1yp-qkMUkjLNoqpkU9INeRCqHoBdUhR4ycos5XrgEoYOYfyEvZyQorp2qkf78l8sr6tmUcijYcrmmX0ctp26veSn-isC8Z3mGBuPoXs4S1ZAT5I33G4IolWv3nUF5R0mRGKyJXj1g6-obKEgjYkjKMX1PXOHrh44wcVs8kA8fhoNq7o5y7TD0_vXVAD4iuIKV8alhSwtcoK7ceu7Y5E9yaso0" alt="Professional consultant" class="object-cover w-full h-full opacity-90 hover:opacity-100 hover:scale-[1.02] transition-all duration-700">
+                            <div class="absolute bottom-4 left-4 right-4 glass-card p-5 rounded-xl border-t border-white/60">
                                 <p class="text-xs uppercase tracking-wider text-primary font-bold mb-3">Typiske roller</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-white rounded-md text-xs font-semibold text-primary shadow-sm border border-slate-100">Programleder</span>
-                                    <span class="px-3 py-1 bg-white rounded-md text-xs font-semibold text-primary shadow-sm border border-slate-100">Enterprise Arkitekt</span>
-                                    <span class="px-3 py-1 bg-white rounded-md text-xs font-semibold text-primary shadow-sm border border-slate-100">Rådgiver</span>
+                                    <span class="px-3 py-1 bg-white/80 backdrop-blur-sm rounded-md text-xs font-semibold text-primary shadow-sm border border-white/50">Programleder</span>
+                                    <span class="px-3 py-1 bg-white/80 backdrop-blur-sm rounded-md text-xs font-semibold text-primary shadow-sm border border-white/50">Enterprise Arkitekt</span>
+                                    <span class="px-3 py-1 bg-white/80 backdrop-blur-sm rounded-md text-xs font-semibold text-primary shadow-sm border border-white/50">Rådgiver</span>
                                 </div>
                             </div>
                         </div>
@@ -193,32 +211,33 @@
         </section>
 
         <!-- Approach -->
-        <section id="tilgang" class="py-24 px-4 md:px-8 bg-background-light relative overflow-hidden">
+        <section id="tilgang" class="py-24 px-4 md:px-8 bg-slate-50 relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
             <div class="mx-auto max-w-[1200px] relative z-10">
                 <div class="text-center max-w-[700px] mx-auto mb-20">
-                    <span class="inline-block py-1 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-wider uppercase text-xs mb-3">Filosofi</span>
+                    <span class="inline-block py-1 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-wider uppercase text-xs mb-3 border border-blue-100">Filosofi</span>
                     <h2 class="text-4xl font-extrabold text-primary mb-6">Min tilgang</h2>
                     <p class="text-lg text-text-muted">I en verden af buzzwords og komplekse teknologier fokuserer jeg på det essentielle. Min tilgang bygger på tre kerneprincipper, der sikrer succesfulde projekter.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="group p-8 rounded-2xl bg-surface-light border border-border-subtle hover:border-accent/30 transition-all duration-300 shadow-sm hover:shadow-premium relative top-0 hover:-top-2">
-                        <div class="size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                            <i data-lucide="gem" width="32" height="32"></i>
+                    <!-- Clean card design: removed heavy border, added better shadow -->
+                    <div class="group p-8 rounded-2xl bg-surface-light shadow-card hover:shadow-card-hover border border-transparent transition-all duration-300 relative top-0 hover:-top-2">
+                        <div class="size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-sm">
+                            <i data-lucide="gem" width="28" height="28"></i>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Kvalitet før kvantitet</h3>
                         <p class="text-text-muted leading-relaxed">Jeg tror på at gøre færre ting rigtigt frem for mange ting halvt. Fokus på dybde og grundighed sikrer, at løsningerne holder i længden og skaber en robust platform for fremtiden.</p>
                     </div>
-                    <div class="group p-8 rounded-2xl bg-surface-light border border-border-subtle hover:border-accent/30 transition-all duration-300 shadow-sm hover:shadow-premium relative top-0 hover:-top-2">
-                        <div class="size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                            <i data-lucide="shield-check" width="32" height="32"></i>
+                    <div class="group p-8 rounded-2xl bg-surface-light shadow-card hover:shadow-card-hover border border-transparent transition-all duration-300 relative top-0 hover:-top-2">
+                        <div class="size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-sm">
+                            <i data-lucide="shield-check" width="28" height="28"></i>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Klart ansvar</h3>
                         <p class="text-text-muted leading-relaxed">Ejerskab er nøglen til fremdrift. Jeg tager ansvar for mine leverancer og sikrer klarhed omkring roller og forventninger. Gennemsigtighed skaber tillid og fremdrift.</p>
                     </div>
-                    <div class="group p-8 rounded-2xl bg-surface-light border border-border-subtle hover:border-accent/30 transition-all duration-300 shadow-sm hover:shadow-premium relative top-0 hover:-top-2">
-                        <div class="size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                            <i data-lucide="trending-up" width="32" height="32"></i>
+                    <div class="group p-8 rounded-2xl bg-surface-light shadow-card hover:shadow-card-hover border border-transparent transition-all duration-300 relative top-0 hover:-top-2">
+                        <div class="size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-sm">
+                            <i data-lucide="trending-up" width="28" height="28"></i>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Langsigtet værdi</h3>
                         <p class="text-text-muted leading-relaxed">IT-investeringer skal give mening på bundlinjen – også om 5 år. Jeg rådgiver med fokus på totalomkostninger (TCO) og forretningsmæssig værdiskabelse frem for kortsigtede gevinster.</p>
@@ -230,65 +249,69 @@
         <!-- Values -->
         <section class="py-24 px-4 md:px-8 bg-white border-y border-border-subtle">
             <div class="mx-auto max-w-[1024px] flex flex-col gap-24">
-                <div class="flex flex-col md:flex-row gap-16 items-start">
+                <div class="flex flex-col md:flex-row gap-20 items-start">
                     <div class="md:w-1/3 md:sticky md:top-32">
-                        <div class="inline-flex items-center justify-center size-12 rounded-full bg-slate-100 text-primary mb-6">
+                        <div class="inline-flex items-center justify-center size-12 rounded-full bg-slate-50 text-primary mb-6 shadow-sm border border-slate-100">
                             <i data-lucide="handshake" width="24" height="24"></i>
                         </div>
                         <h2 class="text-3xl font-extrabold text-primary mb-4">Det rette match</h2>
-                        <p class="text-text-muted">For at sikre succes er det afgørende, at vi er enige om præmisserne.</p>
+                        <p class="text-text-muted leading-relaxed">For at sikre succes er det afgørende, at vi er enige om præmisserne.</p>
                     </div>
                     <div class="md:w-2/3 space-y-8">
                         <p class="text-text-main leading-relaxed text-lg font-medium">Succesfuld rådgivning handler ikke kun om faglighed, men om at forstå konteksten. Før vi starter et samarbejde, lægger jeg vægt på at forstå jeres:</p>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                            <div class="p-6 rounded-xl bg-background-light border border-border-subtle text-center hover:shadow-md transition-shadow">
-                                <div class="flex justify-center mb-3 text-accent"><i data-lucide="users" width="32" height="32"></i></div>
-                                <span class="block font-bold text-primary mb-1 text-lg">Kultur</span>
-                                <span class="text-sm text-text-muted">Hvordan I arbejder sammen</span>
+                            <div class="p-6 rounded-xl bg-slate-50 border border-transparent hover:border-slate-200 text-center shadow-sm hover:shadow-md transition-all">
+                                <div class="flex justify-center mb-4 text-accent"><i data-lucide="users" width="32" height="32"></i></div>
+                                <span class="block font-bold text-primary mb-2 text-lg">Kultur</span>
+                                <span class="text-sm text-text-muted leading-snug">Hvordan I arbejder sammen</span>
                             </div>
-                            <div class="p-6 rounded-xl bg-background-light border border-border-subtle text-center hover:shadow-md transition-shadow">
-                                <div class="flex justify-center mb-3 text-accent"><i data-lucide="building" width="32" height="32"></i></div>
-                                <span class="block font-bold text-primary mb-1 text-lg">Kontekst</span>
-                                <span class="text-sm text-text-muted">Hvor I kommer fra</span>
+                            <div class="p-6 rounded-xl bg-slate-50 border border-transparent hover:border-slate-200 text-center shadow-sm hover:shadow-md transition-all">
+                                <div class="flex justify-center mb-4 text-accent"><i data-lucide="building" width="32" height="32"></i></div>
+                                <span class="block font-bold text-primary mb-2 text-lg">Kontekst</span>
+                                <span class="text-sm text-text-muted leading-snug">Hvor I kommer fra</span>
                             </div>
-                            <div class="p-6 rounded-xl bg-background-light border border-border-subtle text-center hover:shadow-md transition-shadow">
-                                <div class="flex justify-center mb-3 text-accent"><i data-lucide="flag" width="32" height="32"></i></div>
-                                <span class="block font-bold text-primary mb-1 text-lg">Mål</span>
-                                <span class="text-sm text-text-muted">Hvor I vil hen</span>
+                            <div class="p-6 rounded-xl bg-slate-50 border border-transparent hover:border-slate-200 text-center shadow-sm hover:shadow-md transition-all">
+                                <div class="flex justify-center mb-4 text-accent"><i data-lucide="flag" width="32" height="32"></i></div>
+                                <span class="block font-bold text-primary mb-2 text-lg">Mål</span>
+                                <span class="text-sm text-text-muted leading-snug">Hvor I vil hen</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row gap-16 items-start">
+                <div class="flex flex-col md:flex-row gap-20 items-start">
                     <div class="md:w-1/3 md:sticky md:top-32 md:order-2">
-                        <div class="inline-flex items-center justify-center size-12 rounded-full bg-slate-100 text-primary mb-6">
+                        <div class="inline-flex items-center justify-center size-12 rounded-full bg-slate-50 text-primary mb-6 shadow-sm border border-slate-100">
                             <i data-lucide="briefcase" width="24" height="24"></i>
                         </div>
                         <h2 class="text-3xl font-extrabold text-primary mb-4">Samarbejde</h2>
-                        <p class="text-text-muted">Jeg bliver en integreret del af løsningen, ikke bare en tilskuer.</p>
+                        <p class="text-text-muted leading-relaxed">Jeg bliver en integreret del af løsningen, ikke bare en tilskuer.</p>
                     </div>
                     <div class="md:w-2/3 md:order-1">
                         <p class="text-text-muted leading-relaxed text-lg mb-8">Når I samarbejder med Qvision, kan I forvente en partner, der er tilgængelig, ærlig og engageret. Jeg integrerer mig i jeres team, men bevarer det objektive blik, der er nødvendigt for god rådgivning.</p>
-                        <div class="bg-primary rounded-2xl p-8 text-white shadow-premium">
-                            <h4 class="font-bold text-xl mb-6 flex items-center gap-3">
-                                <div class="p-1 bg-white/20 rounded-full"><i data-lucide="shield" width="20" height="20" class="text-white"></i></div>
-                                Hvad I kan forvente
-                            </h4>
-                            <ul class="space-y-4">
-                                <li class="flex items-start gap-3 bg-white/10 p-3 rounded-lg border border-white/10">
-                                    <i data-lucide="message-square" width="20" height="20" class="text-accent mt-0.5 shrink-0"></i>
-                                    <span class="text-sm md:text-base font-medium">Tæt dialog og løbende afstemning af forventninger.</span>
-                                </li>
-                                <li class="flex items-start gap-3 bg-white/10 p-3 rounded-lg border border-white/10">
-                                    <i data-lucide="timer" width="20" height="20" class="text-accent mt-0.5 shrink-0"></i>
-                                    <span class="text-sm md:text-base font-medium">Leverancer af høj kvalitet, leveret til tiden.</span>
-                                </li>
-                                <li class="flex items-start gap-3 bg-white/10 p-3 rounded-lg border border-white/10">
-                                    <i data-lucide="shield" width="20" height="20" class="text-accent mt-0.5 shrink-0"></i>
-                                    <span class="text-sm md:text-base font-medium">En proaktiv tilgang til risikostyring og problemløsning.</span>
-                                </li>
-                            </ul>
+                        <div class="bg-primary rounded-2xl p-8 md:p-10 text-white shadow-premium relative overflow-hidden">
+                            <!-- Subtle pattern overlay -->
+                            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+                            <div class="relative z-10">
+                                <h4 class="font-bold text-xl mb-8 flex items-center gap-3">
+                                    <div class="p-1.5 bg-white/10 rounded-lg backdrop-blur-sm border border-white/10"><i data-lucide="shield" width="20" height="20" class="text-white"></i></div>
+                                    Hvad I kan forvente
+                                </h4>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
+                                        <i data-lucide="message-square" width="20" height="20" class="text-accent mt-0.5 shrink-0"></i>
+                                        <span class="text-sm md:text-base font-medium text-slate-100">Tæt dialog og løbende afstemning af forventninger.</span>
+                                    </li>
+                                    <li class="flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
+                                        <i data-lucide="timer" width="20" height="20" class="text-accent mt-0.5 shrink-0"></i>
+                                        <span class="text-sm md:text-base font-medium text-slate-100">Leverancer af høj kvalitet, leveret til tiden.</span>
+                                    </li>
+                                    <li class="flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
+                                        <i data-lucide="shield" width="20" height="20" class="text-accent mt-0.5 shrink-0"></i>
+                                        <span class="text-sm md:text-base font-medium text-slate-100">En proaktiv tilgang til risikostyring og problemløsning.</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -296,13 +319,13 @@
         </section>
 
         <!-- Contact -->
-        <section id="kontakt" class="py-24 px-4 md:px-8 bg-background-light">
+        <section id="kontakt" class="py-24 px-4 md:px-8 bg-slate-50">
             <div class="mx-auto max-w-[1024px]">
-                <div class="text-center mb-12">
+                <div class="text-center mb-16">
                     <h2 class="text-3xl font-extrabold text-primary mb-4">Kontakt</h2>
                     <p class="text-text-muted max-w-xl mx-auto">Har I brug for en erfaren sparringspartner til jeres næste IT-initiativ? Lad os tage en uforpligtende snak.</p>
                 </div>
-                <div class="rounded-2xl bg-surface-light overflow-hidden shadow-premium border border-border-subtle flex flex-col md:flex-row">
+                <div class="rounded-3xl bg-surface-light overflow-hidden shadow-premium border border-white/50 flex flex-col md:flex-row">
                     <div class="p-10 md:w-5/12 bg-primary text-white flex flex-col justify-between relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
                         <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent opacity-20 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"></div>
@@ -311,35 +334,35 @@
                             <p class="text-slate-300 mb-10 leading-relaxed text-sm">Udfyld formularen eller kontakt mig direkte via nedenstående kanaler. Jeg svarer typisk inden for 24 timer.</p>
                             <div class="space-y-8">
                                 <div class="flex items-center gap-4 group">
-                                    <div class="size-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300">
-                                        <i data-lucide="mail" width="18" height="18"></i>
+                                    <div class="size-12 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300">
+                                        <i data-lucide="mail" width="20" height="20"></i>
                                     </div>
                                     <div>
-                                        <span class="block text-xs text-slate-400 uppercase tracking-wider font-bold">Email</span>
+                                        <span class="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">Email</span>
                                         <a href="mailto:kontakt@qvision.dk" class="text-lg font-medium hover:text-white transition-colors">kontakt@qvision.dk</a>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 group">
-                                    <div class="size-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300">
-                                        <i data-lucide="phone" width="18" height="18"></i>
+                                    <div class="size-12 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300">
+                                        <i data-lucide="phone" width="20" height="20"></i>
                                     </div>
                                     <div>
-                                        <span class="block text-xs text-slate-400 uppercase tracking-wider font-bold">Telefon</span>
+                                        <span class="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">Telefon</span>
                                         <span class="text-lg font-medium">+45 12 34 56 78</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 group">
-                                    <div class="size-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300">
-                                        <i data-lucide="map-pin" width="18" height="18"></i>
+                                    <div class="size-12 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300">
+                                        <i data-lucide="map-pin" width="20" height="20"></i>
                                     </div>
                                     <div>
-                                        <span class="block text-xs text-slate-400 uppercase tracking-wider font-bold">Lokation</span>
+                                        <span class="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">Lokation</span>
                                         <span class="text-lg font-medium">København, Danmark</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-12 relative z-10">
+                        <div class="mt-12 relative z-10 pt-8 border-t border-white/10">
                             <p class="text-sm text-slate-400 font-mono">CVR: 12345678</p>
                         </div>
                     </div>
@@ -349,19 +372,19 @@
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label htmlFor="name" class="block text-sm font-semibold text-text-main mb-2">Navn</label>
-                                    <input type="text" id="name" placeholder="Dit fulde navn" class="w-full rounded-lg bg-background-light border border-border-subtle px-4 py-3 text-text-main focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-slate-400" />
+                                    <input type="text" id="name" placeholder="Dit fulde navn" class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-text-main focus:bg-white focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none transition-all placeholder:text-slate-400" />
                                 </div>
                                 <div>
                                     <label htmlFor="email" class="block text-sm font-semibold text-text-main mb-2">Email</label>
-                                    <input type="email" id="email" placeholder="din@email.dk" class="w-full rounded-lg bg-background-light border border-border-subtle px-4 py-3 text-text-main focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-slate-400" />
+                                    <input type="email" id="email" placeholder="din@email.dk" class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-text-main focus:bg-white focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none transition-all placeholder:text-slate-400" />
                                 </div>
                             </div>
                             <div>
                                 <label htmlFor="message" class="block text-sm font-semibold text-text-main mb-2">Besked</label>
-                                <textarea id="message" rows="4" placeholder="Hvordan kan jeg hjælpe?" class="w-full rounded-lg bg-background-light border border-border-subtle px-4 py-3 text-text-main focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-slate-400 resize-none h-32"></textarea>
+                                <textarea id="message" rows="4" placeholder="Hvordan kan jeg hjælpe?" class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-text-main focus:bg-white focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none transition-all placeholder:text-slate-400 resize-none h-36"></textarea>
                             </div>
                             <div class="pt-2">
-                                <button type="submit" class="w-full cursor-pointer rounded-lg bg-primary hover:bg-primary-light text-white font-bold py-4 px-6 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+                                <button type="submit" class="w-full cursor-pointer rounded-xl bg-primary hover:bg-primary-light text-white font-bold py-4 px-6 transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-primary/20 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
                                     <span>Send besked</span>
                                     <i data-lucide="send" width="18" height="18"></i>
                                 </button>
@@ -374,7 +397,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-surface-light py-12 border-t border-border-subtle">
+    <footer class="bg-white py-12 border-t border-border-subtle">
         <div class="px-4 md:px-8 max-w-[1024px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3 text-text-muted">
                 <div class="size-6 text-primary">
