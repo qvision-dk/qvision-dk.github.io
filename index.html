@@ -34,12 +34,12 @@
             },
             boxShadow: {
               premium:
-                "0 10px 15px -3px rgba(11, 35, 71, 0.08), 0 4px 6px -2px rgba(11, 35, 71, 0.04)",
+                "0 20px 40px -15px rgba(11, 35, 71, 0.06), 0 0 2px 0 rgba(11, 35, 71, 0.02)",
               "premium-hover":
-                "0 20px 25px -5px rgba(11, 35, 71, 0.12), 0 10px 10px -5px rgba(11, 35, 71, 0.06)",
-              glass: "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
-              float: "0 4px 30px rgba(0, 0, 0, 0.1)",
-              glow: "0 0 15px rgba(37, 99, 235, 0.3)",
+                "0 30px 60px -12px rgba(11, 35, 71, 0.12), 0 0 4px 0 rgba(37, 99, 235, 0.1)",
+              glass: "0 8px 32px 0 rgba(31, 38, 135, 0.05)",
+              float: "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
+              glow: "0 0 20px rgba(37, 99, 235, 0.35)",
             },
             animation: {
               "fade-in-up": "fadeInUp 0.8s ease-out forwards",
@@ -71,10 +71,11 @@
       }
       .floating-nav {
         animation: floatIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 0.85);
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        background: rgba(255, 255, 255, 0.60);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
       }
       .dynamic-bg {
         background: radial-gradient(
@@ -122,7 +123,7 @@
     <!-- Navigation -->
     <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       <nav class="floating-nav pointer-events-auto flex items-center gap-1 rounded-full px-2 py-2 md:px-3 md:py-2 max-w-fit shadow-premium">
-        <a class="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-slate-100 transition-colors duration-200" href="#">
+        <a class="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-slate-50/80 transition-colors duration-200" href="#">
           <div class="size-6 text-primary">
             <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
               <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
@@ -131,14 +132,14 @@
           </div>
           <span class="font-bold text-primary tracking-tight hidden sm:block">Qvision</span>
         </a>
-        <div class="h-6 w-px bg-slate-200 mx-1"></div>
+        <div class="h-6 w-px bg-slate-200/60 mx-1"></div>
         <div class="flex items-center">
-          <a class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-100 px-4 py-2 rounded-full transition-all duration-200 nav-link" href="#tilgang">Tilgang</a>
-          <a class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-100 px-4 py-2 rounded-full transition-all duration-200 nav-link" href="#vaerdiskabelse">Værdi</a>
-          <a class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-100 px-4 py-2 rounded-full transition-all duration-200 nav-link" href="#kontakt">Kontakt</a>
+          <a class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-50/80 px-4 py-2 rounded-full transition-all duration-200 nav-link" href="#tilgang">Tilgang</a>
+          <a class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-50/80 px-4 py-2 rounded-full transition-all duration-200 nav-link" href="#vaerdiskabelse">Værdi</a>
+          <a class="text-sm font-medium text-text-muted hover:text-primary hover:bg-slate-50/80 px-4 py-2 rounded-full transition-all duration-200 nav-link" href="#kontakt">Kontakt</a>
         </div>
         <div class="ml-1 pl-1">
-          <a class="bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center gap-1 shadow-md" href="#kontakt">
+          <a class="bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-1 shadow-md hover:shadow-lg active:scale-95" href="#kontakt">
             <span>Book møde</span>
           </a>
         </div>
@@ -164,20 +165,20 @@
             <span>Sitet er under opbygning</span>
           </div>
           <div class="flex flex-col gap-6">
-            <h1 class="text-5xl font-black leading-tight tracking-[-0.033em] text-white md:text-7xl drop-shadow-lg">
+            <h1 class="text-5xl font-black leading-tight tracking-tighter text-white md:text-7xl drop-shadow-lg">
               Erfaring. Klare leverancer.<br />
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">Reel værdi.</span>
             </h1>
-            <h2 class="mx-auto max-w-[700px] text-xl font-normal leading-relaxed text-blue-100/90">
-              Qvision er specialiseret rådgivning til komplekse IT- og digitaliseringsinitiativer – med fokus på styring, leverancesikkerhed og reel effekt.
+            <h2 class="mx-auto max-w-[700px] text-xl font-normal leading-relaxed text-blue-100/90 tracking-tight">
+              Qvision leverer specialiseret rådgivning til komplekse IT- og digitaliseringsinitiativer med fokus på styring, leverancesikkerhed og målbar effekt.
             </h2>
           </div>
           <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <a class="group relative flex h-14 items-center justify-center gap-2 rounded-full bg-white text-primary px-10 text-base font-bold transition-all shadow-premium hover:bg-blue-50 hover:shadow-premium-hover hover:-translate-y-0.5" href="#kontakt">
+            <a class="group relative flex h-14 items-center justify-center gap-2 rounded-full bg-white text-primary px-10 text-base font-bold transition-all shadow-premium hover:bg-primary-light hover:text-white hover:ring-1 hover:ring-white/30 hover:shadow-premium-hover hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]" href="#kontakt">
               <span>Kontakt mig</span>
               <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
-            <a class="flex h-14 items-center justify-center rounded-full bg-transparent border border-white/30 px-10 text-base font-semibold text-white transition-all hover:bg-white/10 hover:border-white/50 hover:-translate-y-0.5" href="#tilgang">
+            <a class="flex h-14 items-center justify-center rounded-full bg-transparent border border-white/30 px-10 text-base font-semibold text-white transition-all hover:bg-primary-light hover:border-primary-light hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]" href="#tilgang">
               Læs mere
             </a>
           </div>
@@ -188,39 +189,39 @@
       <section id="tilgang" class="py-32 px-4 md:px-8 bg-surface-light relative overflow-hidden">
         <div class="mx-auto max-w-[1200px] relative z-10">
           <div class="text-center max-w-[700px] mx-auto mb-20">
+            <span class="inline-block py-1.5 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-widest uppercase text-xs mb-4">FORSTÅELSE FØR HANDLING</span>
             <h2 class="text-4xl font-extrabold text-primary mb-6 tracking-tight">Min tilgang</h2>
-            <h3 class="text-2xl font-semibold text-accent mb-6">Forståelse før handling</h3>
             <p class="text-lg text-text-muted leading-relaxed">
               Jeg arbejder ikke ud fra standardmodeller eller hurtige løsninger. Jeg arbejder ud fra forståelse. Min tilgang bygger på tre grundprincipper:
             </p>
           </div>
           <div class="grid md:grid-cols-3 gap-8">
             <!-- Card 1 -->
-            <div class="group p-10 rounded-2xl bg-white border border-border-subtle hover:border-accent/30 transition-all duration-300 shadow-premium hover:shadow-premium-hover relative hover:-translate-y-1">
+            <div class="group p-10 rounded-2xl bg-white border border-slate-100 hover:border-accent/30 transition-all duration-300 shadow-premium hover:shadow-premium-hover relative hover:-translate-y-1">
               <div class="size-16 rounded-2xl bg-blue-50/50 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-sm border border-blue-100">
                 <span class="material-symbols-outlined text-[36px]">visibility</span>
               </div>
-              <h3 class="text-2xl font-bold text-primary mb-4">Klarhed</h3>
+              <h3 class="text-2xl font-bold text-primary mb-4 tracking-tight">Klarhed</h3>
               <p class="text-text-muted leading-relaxed text-[17px]">
                 Fremdrift opstår først, når mål, prioriteringer og beslutningsrum er tydelige.
               </p>
             </div>
             <!-- Card 2 -->
-            <div class="group p-10 rounded-2xl bg-white border border-border-subtle hover:border-accent/30 transition-all duration-300 shadow-premium hover:shadow-premium-hover relative hover:-translate-y-1">
+            <div class="group p-10 rounded-2xl bg-white border border-slate-100 hover:border-accent/30 transition-all duration-300 shadow-premium hover:shadow-premium-hover relative hover:-translate-y-1">
               <div class="size-16 rounded-2xl bg-blue-50/50 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-sm border border-blue-100">
                 <span class="material-symbols-outlined text-[36px]">verified_user</span>
               </div>
-              <h3 class="text-2xl font-bold text-primary mb-4">Ansvar</h3>
+              <h3 class="text-2xl font-bold text-primary mb-4 tracking-tight">Ansvar</h3>
               <p class="text-text-muted leading-relaxed text-[17px]">
                 Ejerskab er afgørende. Jeg tager ansvar for leverancer og skaber klarhed om roller, forventninger og snitflader. Gennemsigtighed skaber tillid – og resultater.
               </p>
             </div>
             <!-- Card 3 -->
-            <div class="group p-10 rounded-2xl bg-white border border-border-subtle hover:border-accent/30 transition-all duration-300 shadow-premium hover:shadow-premium-hover relative hover:-translate-y-1">
+            <div class="group p-10 rounded-2xl bg-white border border-slate-100 hover:border-accent/30 transition-all duration-300 shadow-premium hover:shadow-premium-hover relative hover:-translate-y-1">
               <div class="size-16 rounded-2xl bg-blue-50/50 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-sm border border-blue-100">
                 <span class="material-symbols-outlined text-[36px]">eco</span>
               </div>
-              <h3 class="text-2xl font-bold text-primary mb-4">Langsigtet værdi</h3>
+              <h3 class="text-2xl font-bold text-primary mb-4 tracking-tight">Langsigtet værdi</h3>
               <p class="text-text-muted leading-relaxed text-[17px]">
                 IT-investeringer skal skabe effekt på bundlinjen og fungere i organisationen over tid. Resultaterne skal holde – også efter mit engagement er afsluttet.
               </p>
@@ -233,7 +234,7 @@
       <section id="vaerdiskabelse" class="py-32 px-4 md:px-8 bg-background-light border-y border-border-subtle">
         <div class="mx-auto max-w-[1200px]">
           <div class="flex flex-col items-center text-center mb-16">
-            <span class="inline-block py-1.5 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-wider uppercase text-xs mb-4">VÆRDISKABELSE</span>
+            <span class="inline-block py-1.5 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-widest uppercase text-xs mb-4">VÆRDISKABELSE</span>
             <h2 class="text-4xl font-extrabold text-primary mb-6 tracking-tight">Hvor skaber jeg værdi?</h2>
             <p class="text-lg text-text-muted leading-relaxed max-w-2xl">
               Jeg træder ind, hvor der er behov for overblik, struktur og ledelseskraft til at løfte komplekse initiativer.
@@ -241,36 +242,36 @@
           </div>
           <div class="grid md:grid-cols-3 gap-6 mb-12">
             <!-- Item 1 -->
-            <div class="flex flex-col p-8 rounded-3xl bg-white shadow-premium border border-border-subtle hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex flex-col p-8 rounded-3xl bg-white shadow-premium border border-slate-100 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
               <div class="shrink-0 size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6">
                 <span class="material-symbols-outlined text-[28px]">extension</span>
               </div>
               <div class="text-left">
-                <h3 class="text-xl font-bold text-primary mb-3">Kompleksitetshåndtering</h3>
+                <h3 class="text-xl font-bold text-primary mb-3 tracking-tight">Kompleksitetshåndtering</h3>
                 <p class="text-text-muted leading-relaxed">
                   Når initiativer mister retning eller går i stå, skaber jeg overblik og omsætter kompleksitet til eksekverbare leverancer.
                 </p>
               </div>
             </div>
             <!-- Item 2 -->
-            <div class="flex flex-col p-8 rounded-3xl bg-white shadow-premium border border-border-subtle hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex flex-col p-8 rounded-3xl bg-white shadow-premium border border-slate-100 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
               <div class="shrink-0 size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6">
                 <span class="material-symbols-outlined text-[28px]">hub</span>
               </div>
               <div class="text-left">
-                <h3 class="text-xl font-bold text-primary mb-3">Brobygning og samarbejde</h3>
+                <h3 class="text-xl font-bold text-primary mb-3 tracking-tight">Brobygning og samarbejde</h3>
                 <p class="text-text-muted leading-relaxed">
                   Jeg forbinder forretningens behov med IT’ens muligheder og etablerer et fælles sprog på tværs af organisationen.
                 </p>
               </div>
             </div>
             <!-- Item 3 -->
-            <div class="flex flex-col p-8 rounded-3xl bg-white shadow-premium border border-border-subtle hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex flex-col p-8 rounded-3xl bg-white shadow-premium border border-slate-100 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1">
               <div class="shrink-0 size-14 rounded-xl bg-blue-50 flex items-center justify-center text-accent mb-6">
                 <span class="material-symbols-outlined text-[28px]">bolt</span>
               </div>
               <div class="text-left">
-                <h3 class="text-xl font-bold text-primary mb-3">Eksekveringskraft</h3>
+                <h3 class="text-xl font-bold text-primary mb-3 tracking-tight">Eksekveringskraft</h3>
                 <p class="text-text-muted leading-relaxed">
                   Fra strategi til handling. Jeg sikrer konsekvent opfølgning, tydelig styring og stabil levering gennem moderne ledelses- og agile principper.
                 </p>
@@ -282,13 +283,13 @@
             <div class="absolute inset-0 bg-primary z-0"></div>
             <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
               <div class="md:w-2/3 text-left">
-                <h4 class="text-2xl font-bold text-white mb-4">Typisk Use Case</h4>
+                <h4 class="text-2xl font-bold text-white mb-4 tracking-tight">Typisk Use Case</h4>
                 <p class="text-blue-100 leading-relaxed">
                   En større organisation har igangsat en digital transformation, men oplever manglende fremdrift og koordinering på tværs af teams. Jeg træder ind som Release Train Engineer (RTE) eller Program Manager, etablerer governance, faciliterer PI Planning og sikrer, at leverancer bliver sammenhængende, prioriterede og eksekveret.
                 </p>
               </div>
               <div class="md:w-1/3 flex justify-center md:justify-end">
-                <a class="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white text-primary font-bold px-8 transition-all hover:bg-blue-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap" href="#kontakt">
+                <a class="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white text-primary font-bold px-8 transition-all hover:bg-blue-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] whitespace-nowrap" href="#kontakt">
                   <span>Kontakt mig →</span>
                 </a>
               </div>
@@ -360,38 +361,38 @@
       <!-- Cooperation -->
       <section class="py-32 px-4 md:px-8 bg-background-light border-y border-border-subtle">
         <div class="mx-auto max-w-[1024px] flex flex-col items-center">
-          <span class="inline-block py-1.5 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-wider uppercase text-xs mb-4">SAMARBEJDSFORM</span>
+          <span class="inline-block py-1.5 px-3 rounded-md bg-blue-50 text-accent font-bold tracking-widest uppercase text-xs mb-4">SAMARBEJDSFORM</span>
           <h2 class="text-4xl font-extrabold text-primary mb-6 text-center tracking-tight">Samarbejdsform</h2>
           <p class="text-lg text-text-muted text-center max-w-2xl mb-16">
             Et samarbejde med mig er kendetegnet ved:
           </p>
           <div class="grid md:grid-cols-3 gap-8 w-full">
             <!-- Item 1 -->
-            <div class="bg-surface-light p-10 rounded-2xl border border-border-subtle shadow-premium flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+            <div class="bg-surface-light p-10 rounded-2xl border border-slate-100 shadow-premium flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
               <div class="size-16 rounded-full bg-blue-50 text-accent flex items-center justify-center mb-6">
                 <span class="material-symbols-outlined text-[32px]">check_circle</span>
               </div>
-              <h3 class="text-xl font-bold text-primary mb-3">Ærlig dialog</h3>
+              <h3 class="text-xl font-bold text-primary mb-3 tracking-tight">Ærlig dialog</h3>
               <p class="text-text-muted leading-relaxed">
                 Ærlig dialog og realistiske forventninger.
               </p>
             </div>
             <!-- Item 2 -->
-            <div class="bg-surface-light p-10 rounded-2xl border border-border-subtle shadow-premium flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+            <div class="bg-surface-light p-10 rounded-2xl border border-slate-100 shadow-premium flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
               <div class="size-16 rounded-full bg-blue-50 text-accent flex items-center justify-center mb-6">
                 <span class="material-symbols-outlined text-[32px]">psychology</span>
               </div>
-              <h3 class="text-xl font-bold text-primary mb-3">Faglighed & Indsigt</h3>
+              <h3 class="text-xl font-bold text-primary mb-3 tracking-tight">Faglighed & Indsigt</h3>
               <p class="text-text-muted leading-relaxed">
                 Høj faglighed kombineret med menneskelig indsigt.
               </p>
             </div>
             <!-- Item 3 -->
-            <div class="bg-surface-light p-10 rounded-2xl border border-border-subtle shadow-premium flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+            <div class="bg-surface-light p-10 rounded-2xl border border-slate-100 shadow-premium flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
               <div class="size-16 rounded-full bg-blue-50 text-accent flex items-center justify-center mb-6">
                 <span class="material-symbols-outlined text-[32px]">handshake</span>
               </div>
-              <h3 class="text-xl font-bold text-primary mb-3">Respekt</h3>
+              <h3 class="text-xl font-bold text-primary mb-3 tracking-tight">Respekt</h3>
               <p class="text-text-muted leading-relaxed">
                 Respekt for organisationens kontekst, tempo og modenhed.
               </p>
@@ -420,14 +421,14 @@
               <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
               <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent opacity-20 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"></div>
               <div class="relative z-10">
-                <h3 class="text-2xl font-bold mb-10">Kontaktinfo</h3>
+                <h3 class="text-2xl font-bold mb-10 tracking-tight">Kontaktinfo</h3>
                 <div class="space-y-8">
                   <div class="flex items-center gap-5 group">
                     <div class="size-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300 shadow-lg">
                       <span class="material-symbols-outlined text-xl">mail</span>
                     </div>
                     <div>
-                      <span class="block text-xs text-blue-200 uppercase tracking-wider font-bold mb-1">Email</span>
+                      <span class="block text-xs text-blue-200 uppercase tracking-widest font-bold mb-1">Email</span>
                       <a href="mailto:kontakt@qvision.dk" class="text-lg font-medium hover:text-blue-200 transition-colors">kontakt@qvision.dk</a>
                     </div>
                   </div>
@@ -436,7 +437,7 @@
                       <span class="material-symbols-outlined text-xl">call</span>
                     </div>
                     <div>
-                      <span class="block text-xs text-blue-200 uppercase tracking-wider font-bold mb-1">Telefon</span>
+                      <span class="block text-xs text-blue-200 uppercase tracking-widest font-bold mb-1">Telefon</span>
                       <span class="text-lg font-medium">+45 12 34 56 78</span>
                     </div>
                   </div>
@@ -445,7 +446,7 @@
                       <span class="material-symbols-outlined text-xl">location_on</span>
                     </div>
                     <div>
-                      <span class="block text-xs text-blue-200 uppercase tracking-wider font-bold mb-1">Lokation</span>
+                      <span class="block text-xs text-blue-200 uppercase tracking-widest font-bold mb-1">Lokation</span>
                       <span class="text-lg font-medium">København, Danmark</span>
                     </div>
                   </div>
@@ -454,7 +455,7 @@
                       <span class="material-symbols-outlined text-xl">badge</span>
                     </div>
                     <div>
-                      <span class="block text-xs text-blue-200 uppercase tracking-wider font-bold mb-1">CVR</span>
+                      <span class="block text-xs text-blue-200 uppercase tracking-widest font-bold mb-1">CVR</span>
                       <span class="text-lg font-medium">12345678</span>
                     </div>
                   </div>
@@ -462,30 +463,30 @@
               </div>
             </div>
             <div class="p-12 md:w-7/12 bg-surface-light">
-              <h3 class="text-2xl font-bold text-primary mb-8">Send en besked</h3>
+              <h3 class="text-2xl font-bold text-primary mb-8 tracking-tight">Send en besked</h3>
               <form class="space-y-6" onsubmit="event.preventDefault(); alert('Tak for din besked! Dette er en demo.');">
                 <div class="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" class="block text-sm font-bold text-text-main mb-2">Navn</label>
                     <div class="relative">
-                      <input type="text" id="name" placeholder="Dit fulde navn" class="w-full rounded-xl bg-background-light border border-border-subtle px-4 py-3.5 text-text-main focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-premium outline-none transition-all placeholder:text-slate-400" />
+                      <input type="text" id="name" placeholder="Dit fulde navn" class="w-full rounded-xl bg-background-light border border-slate-200 px-4 py-3.5 text-text-main focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-premium outline-none transition-all placeholder:text-slate-400" />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="email" class="block text-sm font-bold text-text-main mb-2">Email</label>
                     <div class="relative">
-                      <input type="email" id="email" placeholder="din@email.dk" class="w-full rounded-xl bg-background-light border border-border-subtle px-4 py-3.5 text-text-main focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-premium outline-none transition-all placeholder:text-slate-400" />
+                      <input type="email" id="email" placeholder="din@email.dk" class="w-full rounded-xl bg-background-light border border-slate-200 px-4 py-3.5 text-text-main focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-premium outline-none transition-all placeholder:text-slate-400" />
                     </div>
                   </div>
                 </div>
                 <div>
                   <label htmlFor="message" class="block text-sm font-bold text-text-main mb-2">Besked</label>
                   <div class="relative">
-                    <textarea id="message" rows="4" placeholder="Hvordan kan jeg hjælpe?" class="w-full rounded-xl bg-background-light border border-border-subtle px-4 py-3.5 text-text-main focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-premium outline-none transition-all placeholder:text-slate-400 resize-none h-36"></textarea>
+                    <textarea id="message" rows="4" placeholder="Hvordan kan jeg hjælpe?" class="w-full rounded-xl bg-background-light border border-slate-200 px-4 py-3.5 text-text-main focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-premium outline-none transition-all placeholder:text-slate-400 resize-none h-36"></textarea>
                   </div>
                 </div>
                 <div class="pt-4">
-                  <button type="submit" class="w-full cursor-pointer rounded-xl bg-primary hover:bg-primary-light text-white font-bold py-4 px-6 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+                  <button type="submit" class="w-full cursor-pointer rounded-xl bg-primary hover:bg-primary-light text-white font-bold py-4 px-6 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] flex items-center justify-center gap-2">
                     <span>Send besked</span>
                     <span class="material-symbols-outlined text-sm">send</span>
                   </button>
@@ -500,20 +501,8 @@
 
     <!-- Footer -->
     <footer class="bg-surface-light py-12 border-t border-border-subtle">
-      <div class="px-4 md:px-8 max-w-[1024px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex items-center gap-3 text-text-muted">
-          <div class="size-6 text-primary opacity-80">
-            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
-            </svg>
-          </div>
-          <span class="text-sm font-medium">© 2026 Qvision. Alle rettigheder forbeholdes.</span>
-        </div>
-        <div class="flex gap-8">
-          <a href="#" class="text-sm font-medium text-text-muted hover:text-accent transition-colors duration-200">LinkedIn</a>
-          <a href="#" class="text-sm font-medium text-text-muted hover:text-accent transition-colors duration-200">Privatlivspolitik</a>
-          <a href="#" class="text-sm font-medium text-text-muted hover:text-accent transition-colors duration-200">Cookiepolitik</a>
-        </div>
+      <div class="px-4 md:px-8 max-w-[1024px] mx-auto flex justify-center items-center">
+        <span class="text-sm font-medium text-text-muted">© 2026 Qvision. Alle rettigheder forbeholdes.</span>
       </div>
     </footer>
     <script>
